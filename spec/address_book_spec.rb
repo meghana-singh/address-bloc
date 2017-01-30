@@ -41,6 +41,8 @@ require_relative '../models/address_book'
           book = AddressBook.new
           book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
           expect(book.entries.size).to eq(1)
+          book.remove_entry('Ada Lovelace', '010.012.1814', 'augusta.king@lovelace.com')
+          expect(book.entries.size).to eq(1)
           book.remove_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
           expect(book.entries.size).to eq(0)
       end      
