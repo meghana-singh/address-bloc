@@ -44,6 +44,8 @@ require_relative '../models/address_book'
       it "removes only one entry in the address book" do
           book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
           expect(book.entries.size).to eq(1)
+          book.remove_entry('Ada Lovelace', '010.012.1814', 'augusta.king@lovelace.com')
+          expect(book.entries.size).to eq(1)
           book.remove_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
           expect(book.entries.size).to eq(0)
       end      
