@@ -14,7 +14,8 @@ class MenuController
       puts "3 - Search for an entry"
       puts "4 - Import entries from a CSV"
       puts "5 - View Entry Number n"
-      puts "6 - Exit"
+      puts "6 - Delete All Entries - Behold, the Destroy-Inator!!!"
+      puts "7 - Exit"
       print "Enter your selection: "
  
       # #3
@@ -42,7 +43,11 @@ class MenuController
             system "clear"
             view_entry
             main_menu
-        when 6 
+        when 6
+            system "clear"
+            destroy_inator
+            main_menu
+        when 7 
              puts "Good-bye!"
              # #8
              exit(0)
@@ -224,6 +229,12 @@ class MenuController
          puts entry
          delete_entry(entry_to_delete)
          address_book.add_entry(entry.name, entry.phone_number, entry.email)
+      end
+      
+      def destroy_inator
+         print "Press Y to activate the Destroy-Inator!!!: " 
+         answer = gets.chomp
+         address_book.entries.clear if answer.downcase == "y"
       end
    
 end
