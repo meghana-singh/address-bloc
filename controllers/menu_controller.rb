@@ -132,7 +132,7 @@ class MenuController
              print "Entry Number: "
              entry_number = gets.to_i
          end
-         
+         puts address_book.entries[entry_number].to_s
       end
    
 end
